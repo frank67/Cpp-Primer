@@ -3,7 +3,6 @@
 //  Exercise 9.32
 //
 //  Created by pezy on 12/3/14.
-//  Copyright (c) 2014 pezy. All rights reserved.
 //
 //  @Brief  In the program on page 354 would it be legal to write the call to insert as follows?
 //          If not, why not?
@@ -23,13 +22,14 @@ using std::vector; using std::cout; using std::endl;
 
 int main()
 {
-    vector<int> vi = {0,1,2,3,4,5,6,7,8,9};
+    vector<int> vi = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     auto iter = vi.begin();
     while (iter != vi.end()) {
         if (*iter % 2) {
             iter = vi.insert(iter, *iter);
             iter += 2;
-        } else
+        }
+        else
             iter = vi.erase(iter);
     }
 

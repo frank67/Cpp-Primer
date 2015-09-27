@@ -5,12 +5,12 @@
 *  @remark     This code is for the exercises from C++ Primer 5th Edition
 *  @note
 ***************************************************************************/
-//!
-//! Exercise 17.21
-//! Rewrite your phone number program from 8.3.2 (p. 323) to use the 
-//! valid function defined in this section.
+//
+// Exercise 17.21
+// Rewrite your phone number program from 8.3.2 (p. 323) to use the 
+// valid function defined in this section.
 
-#include<iostream>
+#include <iostream>
 using std::cerr;
 using std::cout;
 using std::cin;
@@ -18,18 +18,18 @@ using std::endl;
 using std::istream;
 using std::ostream;
 
-#include<fstream>
+#include <fstream>
 using std::ifstream;
 using std::ofstream;
 
-#include<sstream>
+#include <sstream>
 using std::istringstream;
 using std::ostringstream;
 
-#include<string>
+#include <string>
 using std::string;
 
-#include<vector>
+#include <vector>
 using std::vector;
 
 #include <regex>
@@ -39,7 +39,7 @@ using std::regex_error;
 
 int main() {
 	try {
-		regex reg("(\\d{4})?([-])?(\\d{5})");
+		regex reg("(\\d{ 4 })?([-])?(\\d{ 5 })");
 		string str;
 		while (getline(cin, str)) {
 			for (sregex_iterator b(str.cbegin(), str.cend(), reg), e; b != e; ++b) {

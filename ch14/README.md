@@ -49,7 +49,7 @@
 
 (c) changing state of objects. Hence, member
 
-(d) = [] () -> must be member
+(d) = () [] -> must be member
 
 (e) non-member
 
@@ -57,7 +57,7 @@
 
 (g) symetric , non-member
 
-(h) = [] () -> must be member
+(h) = () [] -> must be member
 
 ## Exercise 14.5:
 >In exercise 7.40 from 7.5.1 (p. 291) you wrote a sketch of one of the following classes. Decide what, if any, overloaded operators your class should provide.
@@ -69,7 +69,7 @@ Such as `Book`
 ## Exercise 14.6:
 >Define an output operator for your `Sales_data` class.
 
-see [Exercise 14.2](#Exercise 14.2).
+see [Exercise 14.2](#exercise-142).
 
 ## Exercise 14.7:
 >Define an output operator for you `String` class you wrote for the exercises in 13.5 (p. 531).
@@ -141,7 +141,7 @@ Discussing on [SO](http://stackoverflow.com/questions/21071167/why-is-it-more-ef
 ## Exercise 14.17:
 >Should the class you chose for exercise 7.40 from 7.5.1(p. 291) define the equality operators? If so, implement them. If not, explain why not.
 
-yes.see [Exercise 14.15](#Exercise 14.15)
+yes.see [Exercise 14.15](#exercise-1415)
 
 ## Exercise 14.18:
 >Define relational operators for your `StrBlob`, `StrBlobPtr`, `StrVec`, and `String` classes.
@@ -222,7 +222,7 @@ see [Exercise 14.27](#exercise-1427)
 ## Exercise 14.29:
 > We did not define a `const` version of the increment and decrement operators. Why not?
 
-Because `++` and `--` change the state of the object. Hence ,it's meaningless to do so.
+Because `++` and `--` change the state of the object. Hence , it's meaningless to do so.
 
 ## Exercise 14.30:
 > Add dereference and arrow operators to your `StrBlobPtr` class and to the `ConstStrBlobPtr` class that you defined in exercise 12.22 from 12.1.6 (p. 476). Note that the operators in `constStrBlobPtr` must return `const` references because the `data` member in `constStrBlobPtr` points to a `const vector`.

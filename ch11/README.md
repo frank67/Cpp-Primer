@@ -22,7 +22,7 @@ A `vector` is a collection of objects, and every object has an **associated inde
 >Explain the difference between a map and a set. When might you use one or the other?
 
 - `set` : the element type is the **key type**.
-- `map` : we should use a key-value pair, such as `{key, value}` to indicate that the items together from one element in the map.
+- `map` : we should use a key-value pair, such as `{ key, value }` to indicate that the items together from one element in the map.
 
 I use `set` when i just need to store the `key`, In other hand, I　would like use `map` when i need to store a key-value pair.
 
@@ -39,11 +39,11 @@ I use `set` when i just need to store the `key`, In other hand, I　would like u
 ## [Exercise 11.14](ex11_14.cpp)
 
 ## Exercise 11.15:
->What are the mapped_type, key_type, and value_type of a map from int to vector<int>?
+>What are the mapped_type, key_type, and value_type of a map from int to vector< int >?
 
-- mapped_type : vector<int>
+- mapped_type : vector< int >
 - key_type : int
-- value_type : std::pair<int, vector<int>>
+- value_type : std::pair< const int, vector<int> >
 
 ## Exercise 11.16:
 >Using a map iterator write an expression that assigns a value to an element.
@@ -80,11 +80,11 @@ std::multiset<Sales_data, compareType>::iterator c_it = bookstore.begin();
 >Assuming word_count is a map from string to size_t and word is a string, explain the following loop:
 ```cpp
 while (cin >> word)
-    ++word_count.insert({word, 0}).first->second;
+    ++word_count.insert({ word, 0 }).first->second;
 ```
 
 ```cpp
-++ (word_count.insert({word, 0}).first->second)
+++ (word_count.insert({ word, 0 }).first->second)
 ```
 ## Exercise 11.22:
 >Given a map<string, vector<int>>, write the types used as an argument and as the return value for the version of insert that inserts one element.
@@ -110,9 +110,9 @@ error: passing ‘const std::map<std::basic_string<char>, std::basic_string<char
      auto key = m[s];
                    ^
 ```
-Because std::map's operator is not declared as **const**,but m is declared as a  reference to  std::map with **const**.If insert new pair,it will cause error.
+Because std::map's operator is not declared as **const**, but m is declared as a  reference to  std::map with **const**.If insert new pair, it will cause error.
 ## Exercise 11.35:
->In buildMap, what effect, if any, would there be from rewriting `trans_map[key] = value.substr(1);` as `trans_map.insert({key, value.substr(1)})`?
+>In buildMap, what effect, if any, would there be from rewriting `trans_map[key] = value.substr(1);` as `trans_map.insert({ key, value.substr(1) })`?
 
 - use subscript operator: if a word does appear multiple times, our loops will put the **last** corresponding phrase into trans_map
 - use `insert`: if a word does appear multiple times, our loops will put the **first** corresponding phrase into trans_map

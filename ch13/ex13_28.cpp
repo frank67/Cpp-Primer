@@ -3,7 +3,6 @@
 //  Exercise 13.28
 //
 //  Created by pezy on 1/20/15.
-//  Copyright (c) 2015 pezy. All rights reserved.
 //
 //  Given the following classes, implement a default constructor and the necessary copy-control members.
 
@@ -15,15 +14,12 @@ TreeNode& TreeNode::operator=(const TreeNode &rhs)
     if (--*count == 0) {
         if (left) {
             delete left;
-            left = nullptr;
         }
         if (right) {
             delete right;
-            right = nullptr;
         }
 
         delete count;
-        count = nullptr;
     }
     value = rhs.value;
     left = rhs.left;
@@ -42,6 +38,5 @@ BinStrTree& BinStrTree::operator=(const BinStrTree &bst)
 
 int main()
 {
-	
-	return 0;
+    return 0;
 }

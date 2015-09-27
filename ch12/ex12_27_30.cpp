@@ -3,7 +3,6 @@
 //  Exercise 12.27
 //
 //  Created by pezy on 12/31/14.
-//  Copyright (c) 2014 pezy. All rights reserved.
 //
 //  The TextQuery and QueryResult classes use only capabilities that we have already covered.
 //  Without looking ahead, write your own versions of these classes.
@@ -14,7 +13,7 @@
 
 TextQuery::TextQuery(std::ifstream &ifs) : input(new vector<string>)
 {
-    LineNo lineNo{0};
+    LineNo lineNo{ 0 };
     for (string line; std::getline(ifs, line); ++lineNo) {
         input->push_back(line);
         std::istringstream line_stream(line);

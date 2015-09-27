@@ -1,26 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <iterator>
-
 using std::cout; using std::endl; using std::vector;
 
 int main()
 {
-    // use array
-    int ia[10];
-    for (auto i=0; i<10; ++i)
-        ia[i] = i;
+    // array
+    int arr[10];
+    for (int i = 0; i < 10; ++i) arr[i] = i;
+    int arr2[10];
+    for (int i = 0; i < 10; ++i) arr2[i] = arr[i];
 
-    int ia2[10];
-    for (auto i=0; i<10; ++i)
-        ia2[i] = ia[i];
-
-    // use vector
-    vector<int> iv(std::begin(ia2), std::end(ia2));
-    vector<int> iv2(iv);
-
-    for (auto i : iv2)
-        cout << i << " ";
+    // vector
+    vector<int> v(10);
+    for (int i = 0; i != 10; ++i) v[i] = arr[i];
+    vector<int> v2(v);
+    for (auto i : v2) cout << i << " ";
     cout << endl;
 
     return 0;

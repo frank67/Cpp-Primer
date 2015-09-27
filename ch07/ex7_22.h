@@ -3,7 +3,6 @@
 //  Exercise 7.22
 //
 //  Created by pezy on 11/13/14.
-//  Copyright (c) 2014 pezy. All rights reserved.
 //
 
 #ifndef CP5_ex7_22_h
@@ -18,8 +17,8 @@ struct Person {
 
 public:
     Person() = default;
-    Person(const std::string sname, const std::string saddr):name(sname), address(saddr){}
-    Person(std::istream &is){read(is, *this);}
+    Person(const std::string sname, const std::string saddr):name(sname), address(saddr){ }
+    Person(std::istream &is){ read(is, *this); }
 
     std::string getName() const { return name; }
     std::string getAddress() const { return address; }

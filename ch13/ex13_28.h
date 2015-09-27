@@ -3,7 +3,6 @@
 //  Exercise 13.28
 //
 //  Created by pezy on 1/20/15.
-//  Copyright (c) 2015 pezy. All rights reserved.
 //
 //  Given the following classes, implement a default constructor and the necessary copy-control members.
 
@@ -15,7 +14,7 @@ using std::string;
 
 class TreeNode {
 public:
-    TreeNode() : value(string()), count(new int(1)), left(nullptr), right(nullptr) {}
+    TreeNode() : value(string()), count(new int(1)), left(nullptr), right(nullptr) { }
     TreeNode(const TreeNode &rhs) : value(rhs.value), count(rhs.count), left(rhs.left), right(rhs.right) { ++*count; }
     TreeNode& operator=(const TreeNode &rhs);
     ~TreeNode() {
@@ -42,8 +41,8 @@ private:
 
 class BinStrTree {
 public:
-    BinStrTree() : root(new TreeNode()) {}
-    BinStrTree(const BinStrTree &bst) : root(new TreeNode(*bst.root)) {}
+    BinStrTree() : root(new TreeNode()) { }
+    BinStrTree(const BinStrTree &bst) : root(new TreeNode(*bst.root)) { }
     BinStrTree& operator=(const BinStrTree &bst);
     ~BinStrTree() { delete root; }
 

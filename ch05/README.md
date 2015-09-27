@@ -1,12 +1,12 @@
 ##Exercise 5.1
 >What is a null statement? When might you use a null statement?
 
-null statement is the empty statement. like this:
+A null statement is the empty statement. like this:
 ```cpp
 ; // null statement
 ```
 
-I might use a null statement when the **language requires a statement but the program's logic does not. For example:
+The null statement may be used as a placeholder when a statement is expected. For example:
 ```cpp
 // read until we hit end-of-file or find an input equal to sought
 while (cin >> s && s != sought)
@@ -16,9 +16,7 @@ while (cin >> s && s != sought)
 ##Exercise 5.2
 >What is a block? When might you might use a block?
 
-block is a (possiby empty) sequence of statements and declarations surrounded by a pair of curly braces.
-
-I might use a block when the language requires a single statement but the logic of our program needs more than one. For example:
+A block is a (possiby empty) sequence of statements and declarations surrounded by a pair of curly braces.It's used when multiple statements are needed.For example:
 ```cpp
 while (val <= 10)
 {
@@ -39,36 +37,33 @@ int main()
     int sum = 0, val = 1;
     while (val <= 10)
         sum += val, ++val;
-    std::cout << "Sum of 1 to 10 inclusive is "
-              << sum << std::endl;
+    std::cout << "Sum of 1 to 10 inclusive is " << sum << std::endl;
 
     return 0;
 }
 ```
 
-This rewrite diminishes the readability of the code. The comma operator always guarantees the order and discards the front result.
-But there are no meaning in this example, however, also are incomprehensible.
+This rewritten version diminishes the readability. 
 
 ##Exercise 5.4
->Explain each of the following examples, and correct anyproblems you detect.
+>Explain each of the following examples, and correct any problems you detect.
 - (a) while (string::iterator iter != s.end()) { /* . . . */ }
-- (b) while (bool status = find(word)) { /* . . . */ }
-if (!status) { /* . . . */ }
+- (b) while (bool status = find(word)) { /* . . . */ } if (!status) { /* . . . */ }
 
-(a) iter point at nothing. invalid.
+(a) Illegal declaration : `string::iterator iter != s.end()`
 ```cpp
+//corrrected as:
 std::string::iterator iter = s.begin();
-    while (iter != s.end()) { /* . . . */ }
+while (iter != s.end()) { /* . . . */ }
 ```
 
-(b) The if statement is not in the while's block. so the `status` is invalid. And if find(word) return true, it will go through the while block. we should declare the status before while.
+(b) Variable `status` is undeclared.
 ```cpp
+//corrrected as:
 bool status;
-while ((status = find(word))) {/* ... */}
-if (!status) {/* ... */}
+while ((status = find(word))) { /* ... */ }
+if (!status) { /* ... */ }
 ```  
-
-In fact, the judge `!status` is unnecessary. If the `status=false`, we leave the while, and `!status` is always true.
 
 ##[Exercise 5.5](ex5_5.cpp)
 ##[Exercise 5.6](ex5_6.cpp)
@@ -95,9 +90,10 @@ In fact, the judge `!status` is unnecessary. If the `status=false`, we leave the
         minval = ival;
         occurs = 1;
     }
-(c) if (int ival = get_value())
+(c) int val;
+    if (ival = get_value())
         cout << "ival = " << ival << endl;
-    else if (!ival)
+    if (!ival)
         cout << "ival = 0\n";
 (d) if (ival == 0)
     ival = get_value();
@@ -160,16 +156,16 @@ Colloquial term used to refer to the problem of how to process nested if stateme
 ```
 
 ```cpp
-(a) unsigned aCnt = 0, eCnt = 0, iouCnt = 0;
+(a) // Error: should have a break statement
+    unsigned aCnt = 0, eCnt = 0, iouCnt = 0;
     char ch = next_text();
     switch (ch) {
         case 'a': aCnt++; break;
         case 'e': eCnt++; break;
-        case 'i':
-        case 'o':
-        case 'u': iouCnt++; break;
+        default : iouCnt++; break;
     }
-(b) unsigned index = some_value();
+(b) // Error: ix is not in scope.
+    unsigned index = some_value();
     int ix;
     switch (index) {
         case 1:
@@ -180,7 +176,8 @@ Colloquial term used to refer to the problem of how to process nested if stateme
             ix = static_cast<int>(ivec.size())-1;
             ivec[ ix ] = index;
     }
-(c) unsigned evenCnt = 0, oddCnt = 0;
+(c) // Error: case label syntax error
+    unsigned evenCnt = 0, oddCnt = 0;
     int digit = get_num() % 10;
     switch (digit) {
         case 1: case 3: case 5: case 7: case 9:
@@ -190,7 +187,8 @@ Colloquial term used to refer to the problem of how to process nested if stateme
             evencnt++;
             break;
     }
-(d) const unsigned ival=512, jval=1024, kval=4096;
+(d) // Error: case label must be a constant expression
+    const unsigned ival=512, jval=1024, kval=4096;
     unsigned bufsize;
     unsigned swt = get_bufCnt();
     switch(swt) {
